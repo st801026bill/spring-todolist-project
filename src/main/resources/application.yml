@@ -1,0 +1,17 @@
+spring:
+  datasource:
+    url: jdbc:h2:mem:todo_list;DB_CLOSE_DELAY=-1
+    username: sa
+    password:
+    driverClassName: org.h2.Driver
+  jpa:
+    spring.jpa.database-platform: org.hibernate.dialect.H2Dialect
+    defer-datasource-initialization: true
+  h2:
+    console:
+      enabled: true
+  main:
+    allow-circular-references: true
+
+server:
+  port: 9000

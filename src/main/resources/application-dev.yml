@@ -1,0 +1,26 @@
+spring:
+  datasource:
+#    url: jdbc:h2:mem:localcache;DB_CLOSE_DELAY=-1
+    url: jdbc:h2:file:C:/h2db/localcache;DB_CLOSE_ON_EXIT=FALSE
+    username: sa
+    password:
+    driverClassName: org.h2.Driver
+  jpa:
+    spring.jpa.database-platform: org.hibernate.dialect.H2Dialect
+    defer-datasource-initialization: true
+    hibernate:
+      ddl-auto: update
+  h2:
+    console:
+      enabled: true
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    password:
+    jedis:
+      pool:
+        max-active: 1000
+        max-idle: 8
+        max-wait: 1000
+        min-idle: 0
+    timeout: 500
