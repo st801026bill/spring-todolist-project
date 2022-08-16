@@ -16,13 +16,13 @@ public class ConcurrentMapController {
     private ConcurrentMapService service;
 
     @Operation(summary = "代辦事項查詢", description = "代辦事項查詢")
-    @GetMapping("/map/query/{seqNo}")
+    @GetMapping("/map/todo/{seqNo}")
     public TodoListQueryResDto queryTodo(@PathVariable Integer seqNo) {
         return service.queryTodo(seqNo);
     }
 
     @Operation(summary = "代辦清單查詢", description = "代辦清單查詢")
-    @GetMapping("/map/query")
+    @GetMapping("/map/todo")
     public List<TodoListQueryResDto> queryTodoList() {
         return service.queryTodoList();
     }

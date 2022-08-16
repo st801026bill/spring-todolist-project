@@ -26,21 +26,21 @@ public class TodoListController {
     private IH2Service service;
 
     @Operation(summary = "代辦事項新增", description = "代辦事項新增")
-    @PostMapping("/todo/create")
+    @PostMapping("/todo")
     public String createTodo(@RequestBody TodoListCreateReqDto reqDto) {
         service.createTodoList(reqDto);
         return "send message success";
     }
 
     @Operation(summary = "代辦事項修改", description = "代辦事項修改")
-    @PutMapping("/todo/update")
+    @PutMapping("/todo")
     public String updateTodo(@RequestBody TodoListUpdateReqDto reqDto) {
         service.updateTodoList(reqDto);
         return "send message success";
     }
 
     @Operation(summary = "代辦事項刪除", description = "代辦事項刪除")
-    @DeleteMapping("/todo/delete")
+    @DeleteMapping("/todo")
     public String deleteTodo(@RequestBody TodoListDeleteReqDto reqDto) {
         service.deleteTodoList(reqDto);
         return "send message success";
