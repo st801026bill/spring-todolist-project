@@ -18,13 +18,13 @@ public class RedisController {
     private RedisService service;
 
     @Operation(summary = "代辦事項查詢", description = "代辦事項查詢")
-    @GetMapping("/redis/todo/{seqNo}")
+    @GetMapping("/redis/query/{seqNo}")
     public TodoListQueryResDto queryTodo(@PathVariable Integer seqNo) {
         return service.queryTodo(seqNo);
     }
 
     @Operation(summary = "代辦清單查詢", description = "代辦清單查詢")
-    @GetMapping("/redis/todo")
+    @GetMapping("/redis/query")
     public List<TodoListQueryResDto> queryTodoList() {
         return service.queryTodoList();
     }

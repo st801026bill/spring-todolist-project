@@ -1,6 +1,5 @@
 package com.bill.entity;
 
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.io.Serializable;
 import lombok.AllArgsConstructor;
 import lombok.Builder;

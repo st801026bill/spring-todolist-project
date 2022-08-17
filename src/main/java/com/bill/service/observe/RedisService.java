@@ -45,6 +45,6 @@ public class RedisService implements IObserveService, ICacheService {
     public void updateCache(List<TodoList> todoList) {
         HashMap<String, String> map = todoList.parallelStream().collect(
             Collectors.toMap(e -> String.valueOf(e.getSeqNo()), e -> jsonUtils.writeValueAsString(e), (prev, next) -> next, HashMap::new));
-        jedisUtils.hmset(KEY, map);
+        if(map.size()>0) jedisUtils.hmset(KEY, map);
     }
 }

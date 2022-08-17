@@ -8,8 +8,7 @@ import org.springframework.cache.annotation.EnableCaching;
 @EnableCaching
 public class SpringTodolistProjectApplication {
 
-  public static void main(String[] args) {
-    SpringApplication.run(SpringTodolistProjectApplication.class, args);
-  }
-
+	public static void main(String[] args) {
+			SpringApplication.run(SpringTodolistProjectApplication.class, args);
+	}
 }
