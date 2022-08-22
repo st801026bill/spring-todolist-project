@@ -1,11 +1,16 @@
 package com.bill.controller;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+
 import com.bill.SpringTodolistProjectApplication;
 import com.bill.dto.TodoListQueryResDto;
 import com.bill.entity.TodoList;
 import com.bill.service.observe.ConcurrentMapService;
+import com.bill.service.observe.RedisService;
 import com.bill.util.JsonUtils;
-import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -26,17 +31,12 @@ import org.springframework.http.MediaType;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.web.servlet.MockMvc;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotEquals;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
-
 @SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT, classes = SpringTodolistProjectApplication.class)
 @ActiveProfiles("dev")
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 @AutoConfigureMockMvc
 @Slf4j
-public class ConcurrentMapControllerTest {
+public class RedisControllerTest {
     @Autowired
     private MockMvc mockMvc;
 
@@ -44,7 +44,7 @@ public class ConcurrentMapControllerTest {
     private JsonUtils jsonUtils;
 
     @MockBean
-    private ConcurrentMapService service;
+    private RedisService service;
 
     @Test
     @Order(1)
@@ -75,7 +75,7 @@ public class ConcurrentMapControllerTest {
     }
 
     private TodoListQueryResDto initQueryTodoTest() throws Exception {
-        String result = mockMvc.perform(get("/map/1").accept(MediaType.APPLICATION_JSON))
+        String result = mockMvc.perform(get("/redis/1").accept(MediaType.APPLICATION_JSON))
             .andExpect(status().isOk())
             .andReturn().getResponse().getContentAsString(StandardCharsets.UTF_8);
         return jsonUtils.readValue(result, TodoListQueryResDto.class);
