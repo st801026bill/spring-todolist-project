@@ -24,7 +24,10 @@ public class ConcurrentMapService implements IObserveService, ICacheService {
     @Override
     public TodoListQueryResDto queryTodo(Integer seqNo) {
         TodoListQueryResDto result = new TodoListQueryResDto();
-        BeanUtils.copyProperties(MapUtils.getObject(TODO_MAP, seqNo), result);
+        TodoList todoList = MapUtils.getObject(TODO_MAP, seqNo);
+        if(todoList == null) return null;
+
+        BeanUtils.copyProperties(todoList, result);
         return result;
     }
 
