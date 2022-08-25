@@ -34,12 +34,12 @@ public class TodoList implements Serializable {
 		@Column(name = "update_date_time", nullable = false)
 		private LocalDateTime updateDateTime;
 
-		public TodoList(Integer seqNo, String todo) {
-				this(todo);
+		public TodoList(Integer seqNo, String todo, Boolean isDone) {
+				this(todo, isDone);
 				this.seqNo = seqNo;
 		}
 
-		public TodoList(String todo) {
+		public TodoList(String todo, Boolean isDone) {
 				this.todo = todo;
 				this.isDone = false;
 				this.createDateTime = LocalDateTime.now();
