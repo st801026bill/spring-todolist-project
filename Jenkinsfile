@@ -9,7 +9,7 @@ pipeline {
     tools {
         maven 'Maven'
     }
-    enviroment {
+    environment {
         NEW_VERSION = '1.3.0'
     }
     stages {
