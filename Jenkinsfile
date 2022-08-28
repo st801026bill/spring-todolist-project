@@ -17,14 +17,14 @@ pipeline {
             steps {
                 echo 'building the application...'
                 echo "building version ${NEW_VERSION}"
-                sh "mvn install"
+//                 sh "mvn install"
             }
         }
 
         stage('test') {
             when {
                 expression {
-                    (BRANCH_NAME == 'dev' || BRANCH_NAME == 'master') && params.executeTests
+                    BRANCH_NAME == 'master' && params.executeTests
                 }
             }
             steps {
@@ -35,7 +35,7 @@ pipeline {
         stage('deploy') {
             steps {
                 echo 'deploying the application...'
-                echo "deploying version &{&params.VERSION}"
+                echo "deploying version &{params.VERSION}"
             }
         }
     }
