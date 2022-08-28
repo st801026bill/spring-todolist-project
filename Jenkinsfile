@@ -40,19 +40,19 @@ pipeline {
             }
         }
     }
-//     post {
-//         always {
-//             //
-//         }
-//
-//         success {
-//
-//         }
-//
-//         failure {
-//
-//         }
-//     }
+    post {
+        always {
+            echo "send mail"
+        }
+
+        success {
+            echo "deploy success"
+        }
+
+        failure {
+            echo "deploy failure"
+        }
+    }
 }
 
 node {
