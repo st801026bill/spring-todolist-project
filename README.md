@@ -1,8 +1,8 @@
 # spring-todolist-project
-* 1. 前置作業
-* 2. 安裝 Jenkins
-* 3. Github設定
-* 4. NewMan 自動化測試配置
+* 前置作業
+* 安裝 Jenkins
+* Github設定
+* NewMan 自動化測試配置
 
 **A. 前置作業**  
 ---
